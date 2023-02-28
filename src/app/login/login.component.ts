@@ -1,19 +1,24 @@
-import { Component,OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements  {
-  username: string;
-  password: string;
 
-  onSubmit() {
+export class LoginComponent {
+  // Declare variables to store username and password
+  username!: string;
+  password!: string;
+
+  // Update the onSubmit() method to take in an event argument
+  onSubmit(event: Event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
     // Hard-coded user object
     const user = {
-      username: 'john.doe',
+      username: 'john',
       password: 'password123',
     };
 
