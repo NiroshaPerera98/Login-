@@ -6,22 +6,24 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-  loginForm : FormGroup;
+export class LoginComponent implements  {
+  username: string;
+  password: string;
 
-  constructor() {
-    this.loginForm=new FormGroup(
-      {
-        email :new FormControl('',[Validators.required, Validators.email]),
-        password : new FormControl('',[Validators.required,Validators.minLength(6)])
-      }
-      );
-   }
+  onSubmit() {
+    // Hard-coded user object
+    const user = {
+      username: 'john.doe',
+      password: 'password123',
+    };
 
-  ngOnInit() {
-
-  }
-  onLogin(){
-
+    // Compare user input with hard-coded user object
+    if (this.username === user.username && this.password === user.password) {
+      // Grant access
+      console.log('Login successful!');
+    } else {
+      // Deny access
+      console.log('Login failed. Please try again.');
+    }
   }
 }
